@@ -1,6 +1,8 @@
 import {Profile, Strategy} from 'passport-discord';
 import {VerifyCallback} from 'passport-oauth2';
 import passport from 'passport';
+import {config} from 'dotenv';
+config();
 
 
 passport.use(
@@ -15,6 +17,9 @@ passport.use(
         refreshToken: string, 
         profile: Profile, 
         done: VerifyCallback
-        )=>{} 
+        )=>{
+            console.log(accessToken, refreshToken);
+            console.log(profile);
+        } 
     )
 );
